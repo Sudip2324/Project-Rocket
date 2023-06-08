@@ -13,13 +13,31 @@ public class CollisionHandler : MonoBehaviour
 
     bool isTransitioning = false;
 
+    bool collisionDisable = false;
+
     void Start() 
     {   
         audioSource = GetComponent<AudioSource>();     
     }
+
+    void Update() 
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            NextLevel();
+        }   
+
+        else if (Input.GetKey(KeyCode.C))
+        {
+           collisionDisable = !collisionDisable; // toggle collision
+        }
+    }
+
+
     void OnCollisionEnter(Collision other) 
     {
-        if(isTransitioning) { return; }
+
+        if(isTransitioning || collisionDisable) { return; }
 
         switch(other.gameObject.tag)
         {
@@ -71,8 +89,7 @@ public class CollisionHandler : MonoBehaviour
             Invoke("ReloadLevel", delay);
         }    
           
-          crashParticles.Play();
-
+          crashParticles.Play();    
     }
 
     void ReloadLevel()
