@@ -6,12 +6,15 @@ public class CollisionHandler : MonoBehaviour
     AudioSource audioSource; // reference of AudioSource
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip success;
+
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
     [SerializeField]float delay = 1f;
 
     bool isTransitioning = false;
 
     void Start() 
-    {    
+    {   
         audioSource = GetComponent<AudioSource>();     
     }
     void OnCollisionEnter(Collision other) 
@@ -21,13 +24,11 @@ public class CollisionHandler : MonoBehaviour
         switch(other.gameObject.tag)
         {
             case "Fuel":
-                
                  Debug.Log("Fuel Added");
                  break;
 
             case "Friendly":
                  Debug.Log("Friendly!!!");
-                
                  break;
 
             case "Finish":
@@ -56,20 +57,22 @@ public class CollisionHandler : MonoBehaviour
                 audioSource.PlayOneShot(success);
             }
         
+        successParticles.Play();
     }
 
     void StartCrashSequence()
     {
         isTransitioning = true;
-        if(!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(crash);
-            }
+        audioSource.PlayOneShot(crash);
+
         if(isTransitioning == true)
         {
             GetComponent<Movement>().enabled = false;
+            Invoke("ReloadLevel", delay);
         }    
-          Invoke("ReloadLevel", delay);
+          
+          crashParticles.Play();
+
     }
 
     void ReloadLevel()

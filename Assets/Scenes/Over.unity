@@ -434,6 +434,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3376999143109442091, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443832685166153095, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709562737710432855, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8928336659014679013, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -482,11 +494,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2547269893836782604, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
-    - {fileID: 2160332882759061124, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
-    - {fileID: 3038075556925696380, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
-    - {fileID: 6952876276763040927, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61211451857d74f42b7c27e4c95b4601, type: 3}
 --- !u!1001 &1773540458
 PrefabInstance:
